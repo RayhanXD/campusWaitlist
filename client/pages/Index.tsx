@@ -237,44 +237,6 @@ export default function Index() {
           </AnimatePresence>
         </div>
 
-        {/* Feature Icons Grid */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-24 w-full max-w-4xl px-4"
-        >
-          <FeatureItem 
-            icon={<Zap className="w-6 h-6" />} 
-            title="Buzz" 
-            desc="Real-time campus updates"
-            delay={0.6}
-            color="text-yellow-400"
-          />
-          <FeatureItem 
-            icon={<Users className="w-6 h-6" />} 
-            title="Quests" 
-            desc="Gamified campus life"
-            delay={0.7}
-            color="text-blue-400"
-          />
-          <FeatureItem 
-            icon={<Sparkles className="w-6 h-6" />} 
-            title="Events" 
-            desc="Discover what's on"
-            delay={0.8}
-            color="text-purple-400"
-          />
-          <FeatureItem 
-            icon={<Users className="w-6 h-6" />} 
-            title="Clubs" 
-            desc="Find your community"
-            delay={0.9}
-            color="text-green-400"
-          />
-        </motion.div>
-
         {/* Safe Area Padding for mobile */}
         <div className="h-20 md:h-0" />
       </main>
@@ -288,23 +250,5 @@ export default function Index() {
         }
       `}} />
     </div>
-  );
-}
-
-function FeatureItem({ icon, title, desc, delay, color }: { icon: React.ReactNode, title: string, desc: string, delay: number, color: string }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-      viewport={{ once: true }}
-      className="p-6 rounded-[2rem] bg-white/5 border border-white/5 hover:border-white/20 transition-all duration-500 group"
-    >
-      <div className={`p-3 rounded-2xl bg-white/5 w-fit mb-4 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500 ${color}`}>
-        {icon}
-      </div>
-      <h3 className="text-lg font-bold text-white mb-1">{title}</h3>
-      <p className="text-sm text-slate-500 leading-relaxed font-medium">{desc}</p>
-    </motion.div>
   );
 }
