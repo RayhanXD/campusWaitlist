@@ -38,9 +38,9 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen w-full max-w-full bg-[#0b1020] text-white overflow-x-hidden selection:bg-purple-500/30 selection:text-white">
+    <div className="h-full max-h-[100svh] w-full max-w-full bg-[#0b1020] text-white overflow-x-hidden overflow-y-auto selection:bg-purple-500/30 selection:text-white">
       {/* Dynamic Background Elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none bg-[#0b1020]">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none bg-[#0b1020]" aria-hidden>
         <div className="absolute top-[-10%] left-[-5%] w-[60%] h-[60%] bg-purple-600/10 blur-[150px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] bg-violet-600/10 blur-[150px] rounded-full animate-pulse delay-700" />
         <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-blue-600/5 blur-[100px] rounded-full" />
@@ -76,7 +76,7 @@ export default function Index() {
         </motion.div>
       </div>
 
-      <main className="relative z-10 w-full flex flex-col items-center justify-center min-h-screen px-4 py-4 md:py-6 box-border">
+      <main className="relative z-10 w-full flex flex-col items-center justify-center min-h-full px-4 py-4 md:py-6 box-border">
         {/* Brand Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -84,7 +84,7 @@ export default function Index() {
           transition={{ duration: 0.8 }}
           className="mb-2 md:mb-4 flex-shrink-0"
         >
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-inner">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md shadow-inner">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-ping" />
             <span className="text-sm font-bold tracking-widest uppercase bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
               Campus Launching Fall 2026
@@ -141,9 +141,7 @@ export default function Index() {
                 className="relative group"
               >
                 {/* Glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#7C3AED] to-[#C084FC] rounded-[2.2rem] blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
-                
-                <div className="relative glass-morphism p-5 md:p-6 rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-2xl space-y-4">
+                <div className="relative glass-morphism p-5 md:p-6 rounded-[2rem] bg-white/5 backdrop-blur-2xl shadow-2xl space-y-4">
                   <div className="space-y-1">
                     <h2 className="text-2xl font-black text-white tracking-tight">Join the Waitlist</h2>
                     <p className="text-slate-400 font-medium text-sm">Be the first to experience the future of campus social.</p>
@@ -161,7 +159,7 @@ export default function Index() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         autoComplete="name"
-                        className="h-11 bg-white/5 border-white/10 rounded-2xl focus:ring-purple-500/50 focus:border-purple-500 text-white placeholder:text-slate-600 transition-all duration-300"
+                        className="h-11 bg-white/5 border-0 rounded-2xl focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-[#0b1020] text-white placeholder:text-slate-600 transition-all duration-300"
                       />
                     </div>
                     
@@ -177,7 +175,7 @@ export default function Index() {
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         autoComplete="tel"
-                        className="h-11 bg-white/5 border-white/10 rounded-2xl focus:ring-purple-500/50 focus:border-purple-500 text-white placeholder:text-slate-600 transition-all duration-300"
+                        className="h-11 bg-white/5 border-0 rounded-2xl focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-[#0b1020] text-white placeholder:text-slate-600 transition-all duration-300"
                       />
                     </div>
 
@@ -208,7 +206,7 @@ export default function Index() {
                 key="success"
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                className="glass-morphism p-6 rounded-[2rem] border border-green-500/20 bg-green-500/5 backdrop-blur-2xl shadow-2xl text-center space-y-4"
+                className="glass-morphism p-6 rounded-[2rem] bg-green-500/5 backdrop-blur-2xl shadow-2xl text-center space-y-4"
               >
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-500/20 text-green-400">
                   <CheckCircle2 className="w-7 h-7" />
