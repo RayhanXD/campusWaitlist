@@ -38,9 +38,9 @@ export default function Index() {
   };
 
   return (
-    <div className="h-screen w-screen max-h-screen max-w-full bg-[#0b1020] text-white overflow-hidden selection:bg-purple-500/30 selection:text-white">
+    <div className="min-h-screen w-full max-w-full bg-[#0b1020] text-white overflow-x-hidden selection:bg-purple-500/30 selection:text-white">
       {/* Dynamic Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none bg-[#0b1020]">
         <div className="absolute top-[-10%] left-[-5%] w-[60%] h-[60%] bg-purple-600/10 blur-[150px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] bg-violet-600/10 blur-[150px] rounded-full animate-pulse delay-700" />
         <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-blue-600/5 blur-[100px] rounded-full" />
@@ -76,7 +76,7 @@ export default function Index() {
         </motion.div>
       </div>
 
-      <main className="relative z-10 h-full w-full flex flex-col items-center justify-center overflow-auto min-h-0 px-4 py-4 md:py-6 box-border">
+      <main className="relative z-10 w-full flex flex-col items-center justify-center min-h-screen px-4 py-4 md:py-6 box-border">
         {/* Brand Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}

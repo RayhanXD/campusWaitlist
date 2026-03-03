@@ -93,18 +93,19 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #0b1020;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
   }
 
   #root {
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    min-height: 100%;
   }
 
   :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
