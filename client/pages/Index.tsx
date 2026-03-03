@@ -52,6 +52,36 @@ export default function Index() {
         <div className="absolute top-[-10%] left-[-5%] w-[60%] h-[60%] bg-purple-600/10 blur-[150px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] bg-violet-600/10 blur-[150px] rounded-full animate-pulse delay-700" />
         <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-blue-600/5 blur-[100px] rounded-full" />
+
+        {/* Floating Decoration Icons/Emojis */}
+        <motion.div
+          animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[20%] left-[15%] text-4xl opacity-20"
+        >
+          🎓
+        </motion.div>
+        <motion.div
+          animate={{ y: [0, 20, 0], rotate: [0, -15, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute top-[40%] right-[15%] text-4xl opacity-20"
+        >
+          ✨
+        </motion.div>
+        <motion.div
+          animate={{ y: [0, -15, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-[20%] left-[20%] text-4xl opacity-20"
+        >
+          🚀
+        </motion.div>
+        <motion.div
+          animate={{ y: [0, 15, 0], rotate: [0, 5, 0] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+          className="absolute bottom-[40%] right-[20%] text-4xl opacity-20"
+        >
+          🔥
+        </motion.div>
       </div>
 
       <main className="relative z-10 container mx-auto px-4 pt-16 pb-12 flex flex-col items-center justify-center min-h-screen">
@@ -72,23 +102,33 @@ export default function Index() {
 
         {/* Hero Section */}
         <div className="text-center space-y-8 max-w-3xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] bg-gradient-to-b from-white via-white to-white/40 bg-clip-text text-transparent"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 1,
+              ease: [0, 0.71, 0.2, 1.01],
+              scale: {
+                type: "spring",
+                damping: 12,
+                stiffness: 100,
+                restDelta: 0.001
+              }
+            }}
+            className="mb-8"
           >
-            The New Heart of <br />
-            <span className="bg-gradient-to-r from-[#7C3AED] via-[#A855F7] to-[#C084FC] bg-clip-text text-transparent">
-              College Life.
-            </span>
-          </motion.h1>
-          
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F92a5b5369acb469c88cd61255f1b92ff%2Fbc7eb71f430a491585244f38bc72e6f4?format=webp&width=800&height=1200"
+              alt="Campus Social Logo"
+              className="w-48 md:w-64 mx-auto drop-shadow-[0_0_30px_rgba(124,58,237,0.3)] filter brightness-110"
+            />
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-slate-400 font-medium max-w-xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-slate-400 font-medium max-w-xl mx-auto leading-relaxed px-4"
           >
             A vibrant, mobile-first social hub for college students. Connect, buzz, and discover what's happening on campus.
           </motion.p>
