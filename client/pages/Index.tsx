@@ -277,18 +277,6 @@ export default function Index() {
 
         {/* Safe Area Padding for mobile */}
         <div className="h-20 md:h-0" />
-
-        {/* Simple Footer */}
-        <footer className="mt-auto py-12 flex flex-col items-center gap-6 w-full opacity-40 hover:opacity-100 transition-opacity">
-          <div className="flex gap-8 text-xs font-bold uppercase tracking-widest text-slate-500">
-            <a href="#" className="hover:text-purple-400 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-purple-400 transition-colors">Terms</a>
-            <a href="#" className="hover:text-purple-400 transition-colors">Safety</a>
-          </div>
-          <p className="text-[10px] font-medium text-slate-600 tracking-tighter">
-            MADE FOR STUDENTS, BY STUDENTS. © {new Date().getFullYear()} CAMPUS SOCIAL
-          </p>
-        </footer>
       </main>
 
       <style dangerouslySetInnerHTML={{ __html: `
