@@ -38,9 +38,9 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b1020] text-white overflow-x-hidden selection:bg-purple-500/30 selection:text-white">
+    <div className="h-screen w-screen max-h-screen max-w-full bg-[#0b1020] text-white overflow-hidden selection:bg-purple-500/30 selection:text-white">
       {/* Dynamic Background Elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-5%] w-[60%] h-[60%] bg-purple-600/10 blur-[150px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] bg-violet-600/10 blur-[150px] rounded-full animate-pulse delay-700" />
         <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-blue-600/5 blur-[100px] rounded-full" />
@@ -76,27 +76,27 @@ export default function Index() {
         </motion.div>
       </div>
 
-      <main className="relative z-10 container mx-auto px-4 pt-16 pb-12 flex flex-col items-center justify-center min-h-screen">
+      <main className="relative z-10 h-full w-full flex flex-col items-center justify-center overflow-auto min-h-0 px-4 py-4 md:py-6 box-border">
         {/* Brand Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-12"
+          className="mb-2 md:mb-4 flex-shrink-0"
         >
           <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-inner">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-ping" />
             <span className="text-sm font-bold tracking-widest uppercase bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
-              Campus Launching Spring 2026
+              Campus Launching Fall 2026
             </span>
           </div>
         </motion.div>
 
         {/* Hero Section */}
-        <div className="text-center space-y-8 max-w-3xl">
+        <div className="text-center space-y-2 md:space-y-4 max-w-3xl flex-shrink min-h-0 flex flex-col items-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1.1 }}
             transition={{
               duration: 1,
               ease: [0, 0.71, 0.2, 1.01],
@@ -107,12 +107,12 @@ export default function Index() {
                 restDelta: 0.001
               }
             }}
-            className="mb-8"
+            className="mb-2 md:mb-4 flex-shrink-0"
           >
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2F92a5b5369acb469c88cd61255f1b92ff%2Fbc7eb71f430a491585244f38bc72e6f4?format=webp&width=800&height=1200"
               alt="Campus Social Logo"
-              className="w-48 md:w-64 mx-auto drop-shadow-[0_0_30px_rgba(124,58,237,0.3)] filter brightness-110"
+              className="w-40 md:w-56 lg:w-64 mx-auto drop-shadow-[0_0_40px_rgba(124,58,237,0.35)] filter brightness-110"
             />
           </motion.div>
 
@@ -120,14 +120,16 @@ export default function Index() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-slate-400 font-medium max-w-xl mx-auto leading-relaxed px-4"
+            className="text-base md:text-lg lg:text-xl text-slate-400 font-medium max-w-xl mx-auto leading-snug px-2 flex-shrink-0"
           >
-            A vibrant, mobile-first social hub for college students. Connect, buzz, and discover what's happening on campus.
+            The All-In-One Social Hub for College Students. <br /> Your entire campus, on one app.
           </motion.p>
+
+        
         </div>
 
         {/* Waitlist Container */}
-        <div className="w-full max-w-md mt-16 relative">
+        <div className="w-full max-w-md mt-16 md:mt-24 flex-shrink-0 relative">
           <AnimatePresence mode="wait">
             {!isSuccess ? (
               <motion.div
@@ -141,14 +143,14 @@ export default function Index() {
                 {/* Glow effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#7C3AED] to-[#C084FC] rounded-[2.2rem] blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
                 
-                <div className="relative glass-morphism p-8 md:p-10 rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-2xl space-y-8">
-                  <div className="space-y-3">
-                    <h2 className="text-3xl font-black text-white tracking-tight">Join the Buzz</h2>
-                    <p className="text-slate-400 font-medium">Be the first to experience the future of campus social.</p>
+                <div className="relative glass-morphism p-5 md:p-6 rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-2xl space-y-4">
+                  <div className="space-y-1">
+                    <h2 className="text-2xl font-black text-white tracking-tight">Join the Waitlist</h2>
+                    <p className="text-slate-400 font-medium text-sm">Be the first to experience the future of campus social.</p>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="space-y-2">
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="space-y-1">
                       <Label htmlFor="name" className="text-[10px] font-black uppercase tracking-[0.2em] text-purple-400 ml-1">
                         Full Name
                       </Label>
@@ -159,30 +161,30 @@ export default function Index() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         autoComplete="name"
-                        className="h-14 bg-white/5 border-white/10 rounded-2xl focus:ring-purple-500/50 focus:border-purple-500 text-white placeholder:text-slate-600 transition-all duration-300"
+                        className="h-11 bg-white/5 border-white/10 rounded-2xl focus:ring-purple-500/50 focus:border-purple-500 text-white placeholder:text-slate-600 transition-all duration-300"
                       />
                     </div>
                     
-                    <div className="space-y-2">
+                    <div className="space-y-1">
                       <Label htmlFor="phone" className="text-[10px] font-black uppercase tracking-[0.2em] text-purple-400 ml-1">
                         Phone Number
                       </Label>
                       <Input
                         id="phone"
                         type="tel"
-                        placeholder="+1 (555) 000-0000"
+                        placeholder="(555) 000-0000"
                         required
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         autoComplete="tel"
-                        className="h-14 bg-white/5 border-white/10 rounded-2xl focus:ring-purple-500/50 focus:border-purple-500 text-white placeholder:text-slate-600 transition-all duration-300"
+                        className="h-11 bg-white/5 border-white/10 rounded-2xl focus:ring-purple-500/50 focus:border-purple-500 text-white placeholder:text-slate-600 transition-all duration-300"
                       />
                     </div>
 
                     <Button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full h-16 bg-gradient-to-r from-[#7C3AED] to-[#8B5CF6] hover:from-[#8B5CF6] hover:to-[#A855F7] text-white font-black text-lg rounded-2xl shadow-[0_10px_40px_rgba(124,58,237,0.4)] transition-all duration-300 transform active:scale-[0.98] disabled:opacity-50 group overflow-hidden relative"
+                      className="w-full h-12 bg-gradient-to-r from-[#7C3AED] to-[#8B5CF6] hover:from-[#8B5CF6] hover:to-[#A855F7] text-white font-black text-base rounded-2xl shadow-[0_10px_40px_rgba(124,58,237,0.4)] transition-all duration-300 transform active:scale-[0.98] disabled:opacity-50 group overflow-hidden relative"
                     >
                       <span className="relative z-10 flex items-center justify-center gap-3">
                         {isLoading ? (
@@ -206,14 +208,14 @@ export default function Index() {
                 key="success"
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                className="glass-morphism p-12 rounded-[2rem] border border-green-500/20 bg-green-500/5 backdrop-blur-2xl shadow-2xl text-center space-y-6"
+                className="glass-morphism p-6 rounded-[2rem] border border-green-500/20 bg-green-500/5 backdrop-blur-2xl shadow-2xl text-center space-y-4"
               >
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-500/20 text-green-400 mb-2">
-                  <CheckCircle2 className="w-10 h-10" />
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-500/20 text-green-400">
+                  <CheckCircle2 className="w-7 h-7" />
                 </div>
-                <div className="space-y-2">
-                  <h2 className="text-3xl font-black text-white">You're In!</h2>
-                  <p className="text-slate-400 font-medium text-lg leading-relaxed">
+                <div className="space-y-1">
+                  <h2 className="text-2xl font-black text-white">You're In!</h2>
+                  <p className="text-slate-400 font-medium text-sm leading-snug">
                     Check your messages soon. You're among the first to join the Campus revolution.
                   </p>
                 </div>
@@ -229,8 +231,6 @@ export default function Index() {
           </AnimatePresence>
         </div>
 
-        {/* Safe Area Padding for mobile */}
-        <div className="h-20 md:h-0" />
       </main>
 
       <style dangerouslySetInnerHTML={{ __html: `
