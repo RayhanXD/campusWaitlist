@@ -26,20 +26,12 @@ export default function Index() {
       });
     } catch (error) {
       console.error("Waitlist error:", error);
-      // Even if it fails (likely due to missing credentials), we'll show success for the demo or a specific error
-      if (error instanceof Error && error.message.includes("missing")) {
-         toast({
-          title: "Setup Needed",
-          description: "Supabase credentials are not configured yet. Check the console!",
-          variant: "destructive",
-        });
-      } else {
-        toast({
-          title: "Almost there!",
-          description: "We've recorded your interest. Stay tuned for updates!",
-        });
-        setIsSuccess(true);
-      }
+      const message = error instanceof Error ? error.message : String(error);
+      toast({
+        title: "Couldn't save to waitlist",
+        description: message,
+        variant: "destructive",
+      });
     } finally {
       setIsLoading(false);
     }
@@ -95,7 +87,7 @@ export default function Index() {
           <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-inner">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-ping" />
             <span className="text-sm font-bold tracking-widest uppercase bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
-              Campus Launching Fall 2025
+              Campus Launching Spring 2026
             </span>
           </div>
         </motion.div>

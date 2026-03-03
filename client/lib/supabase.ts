@@ -3,10 +3,16 @@ import { createClient } from "@supabase/supabase-js";
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-// Only initialize if we have credentials
-export const supabase = supabaseUrl && supabaseAnonKey
-  ? createClient(supabaseUrl, supabaseAnonKey)
-  : null;
+// Supabase anon key must be the JWT (starts with "eyJ..."). Do NOT use the "publishable" key (sb_publishable_...).
+// Get the correct key: Supabase Dashboard → Project Settings → API → "anon" "public" key.
+const validKey =
+  supabaseUrl &&
+  supabaseAnonKey &&
+  typeof supabaseAnonKey === "string" &&
+  supabaseAnonKey.startsWith("eyJ");
+
+export const supabase =
+  validKey ? createClient(supabaseUrl!, supabaseAnonKey!) : null;
 
 export interface WaitlistEntry {
   id?: string;
